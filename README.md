@@ -27,7 +27,7 @@ This E-Commerce website, known as "Luv2Shop," is a full-stack application built 
 - **Swagger API Documentation**: Detailed API documentation using Swagger.
 
 - **Responsive Design**: Improved styling and responsive design for a better user experience.
-
+ 
 - **Frontend Hosting**: The frontend is hosted on Netlify for easy access.
 
 - **Backend Hosting**: The backend is hosted on Render.
