@@ -20,12 +20,15 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    # Build and push backend image
     - name: Build and Push Docker image
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t docker.io/${{ secrets.DOCKER_USERNAME }}/love2shop:latest --push .
-    - name: Pull Docker image to verify
-      run: docker pull docker.io/${{ secrets.DOCKER_USERNAME }}/love2shop:latest
-    - name: Show Docker image
-      run: docker images docker.io/${{ secrets.DOCKER_USERNAME }}/love2shop:latest
+      run: docker buildx build --platform linux/amd64,linux/arm64 -f backend/Dockerfile -t docker.io/${{ secrets.DOCKER_USERNAME }}/love2shop_backend:latest --push .
+    
+    # Build and push frontend image
+    - name: Build and Push Docker image
+      run: docker buildx build --platform linux/amd64,linux/arm64 -f frontend/Dockerfile -t docker.io/${{ secrets.DOCKER_USERNAME }}/love2shop_frontend:latest --push .
+
   
   sonarqube:
       runs-on: ubuntu-latest
