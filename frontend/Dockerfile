@@ -5,13 +5,13 @@ FROM node:14-alpine AS build
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY /frontend/package*.json /app/
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application code
-COPY . .
+COPY /frontend/ /app/
 
 # Build the application
 RUN npm run build
