@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deployment
+  namespace: default
+  labels:
+    app: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: mycontainer
+        image: mysql:9.1.0
+        ports:
+        - containerPort: 3306
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+        volumeMounts:
+        # - mountPath: /config
+        #   name: config-volume
+        - mountPath: /var/lib/mysql
+          name: database-storage
+        # - mountPath: /secrets
+        #   name: secret-volume
+        #   readOnly: true
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: ""
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD
+          value: "true"
+        - name: MYSQL_USER
+          value: "petclinic"
+        - name: MYSQL_PASSWORD
+          value: "petclinic"
+        - name: MYSQL_DATABASE
+          value: "petclinic"
+      volumes:
+      # - name: config-volume
+      #   configMap:
+      #     name: petclinic-config
+      - name: database-storage
+        persistentVolumeClaim:
+          claimName: database-pvc
+      # - name: secret-volume
+      #   secret:
+      #     secretName: petclinic-secret
