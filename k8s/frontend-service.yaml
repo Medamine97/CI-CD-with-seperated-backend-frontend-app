@@ -10,5 +10,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080 #app port
+      targetPort: 80 #front app port
   type: ClusterIP

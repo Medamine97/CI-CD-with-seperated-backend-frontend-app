@@ -16,3 +16,10 @@ spec:
             name: frontend-service
             port:
               number: 80
+      - path: /api # for backend , see : \frontend\src\environments\environment.prod.ts 
+        pathType: Prefix
+        backend:
+          service:
+            name: backend-service
+            port:
+              number: 80
