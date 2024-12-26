@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: database-pv
+  name: database-love2shop-pv
   namespace: default
 spec:
   capacity:
