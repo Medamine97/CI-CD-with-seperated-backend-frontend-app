@@ -41,18 +41,12 @@ spec:
         - name: MYSQL_ALLOW_EMPTY_PASSWORD
           value: "true"
         - name: MYSQL_USER
-          value: "petclinic"
+          value: "love2shop_user"
         - name: MYSQL_PASSWORD
-          value: "petclinic"
+          value: "love2shop_password"
         - name: MYSQL_DATABASE
-          value: "petclinic"
+          value: "love2shop"
       volumes:
-      # - name: config-volume
-      #   configMap:
-      #     name: petclinic-config
       - name: database-storage
         persistentVolumeClaim:
           claimName: database-pvc
-      # - name: secret-volume
-      #   secret:
-      #     secretName: petclinic-secret
