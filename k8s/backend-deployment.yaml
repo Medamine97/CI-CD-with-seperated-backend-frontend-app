@@ -28,12 +28,10 @@ spec:
             memory: "256Mi"
         env:
         - name: SPRING_DATASOURCE_URL
-          value: "jdbc:mysql://database-love2shop-service.love2shop.svc.cluster.local:3306/love2shop"
+          value: "jdbc:mysql://database-love2shop-service.love2shop.svc.cluster.local:3306/love2shop?createDatabaseIfNotExist=true"
         - name: SPRING_DATASOURCE_USERNAME
           value: "root"
         - name: SPRING_DATASOURCE_PASSWORD
           value: "rootpassword"
         - name: SPRING_SQL_INIT_MODE
           value: "always"
-        - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-          value: "update"
