@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
-  namespace: default
   labels:
     app: backend
 spec:
@@ -29,7 +28,7 @@ spec:
             memory: "256Mi"
         env:
         - name: SPRING_DATASOURCE_URL
-          value: "jdbc:mysql://database-love2shop-service.default.svc.cluster.local:3306/love2shop"
+          value: "jdbc:mysql://database-love2shop-service.love2shop.svc.cluster.local:3306/love2shop"
         - name: SPRING_DATASOURCE_USERNAME
           value: "root"
         - name: SPRING_DATASOURCE_PASSWORD

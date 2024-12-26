@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: database-love2shop-deployment
-  namespace: default
   labels:
     app: database
 spec:
@@ -31,7 +30,7 @@ spec:
         # - mountPath: /config
         #   name: config-volume
         - mountPath: /var/lib/mysql
-          name: database-storage
+          name: database-love2shop-storage
         # - mountPath: /secrets
         #   name: secret-volume
         #   readOnly: true
@@ -39,6 +38,6 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: "rootpassword"
       volumes:
-      - name: database-storage
+      - name: database-love2shop-storage
         persistentVolumeClaim:
-          claimName: database-pvc
+          claimName: database-love2shop-pvc
