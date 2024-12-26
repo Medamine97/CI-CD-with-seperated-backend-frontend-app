@@ -32,7 +32,7 @@ spec:
           value: "jdbc:mysql://database-service.default.svc.cluster.local:3306/love2shop"
         - name: SPRING_DATASOURCE_USERNAME
           value: "love2shop_user"
-        - name: MYSQL_ROOT_PASSWORD
+        - name: SPRING_DATASOURCE_PASSWORD
           value: "love2shop_password"
         - name: MYSQL_DATABASE
           value: "love2shop"
