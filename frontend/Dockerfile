@@ -14,7 +14,7 @@ RUN npm install
 COPY /frontend/ /app/
 
 # Build the application
-RUN npm run build
+RUN npm run build --configuration=production
 
 # Use an official Nginx image to serve the frontend
 FROM nginx:alpine
