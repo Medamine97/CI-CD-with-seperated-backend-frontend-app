@@ -37,6 +37,8 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "rootpassword"
+        - name: MYSQL_DATABASE
+          value: "love2shop"
       volumes:
       - name: database-love2shop-storage
         persistentVolumeClaim:
