@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: database-deployment
+  name: database-love2shop-deployment
   namespace: default
   labels:
     app: database
