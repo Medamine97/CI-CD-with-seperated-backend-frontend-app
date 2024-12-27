@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist/angular-ecommerce /usr/share/nginx/html
 
 # Copy the nginx.conf to configure the nginx
-COPY --from=build /app/nginx.conf /etc/nginx/conf.d/love2shop.conf
+COPY --from=build /app/nginx.conf /etc/nginx/nginx.conf
  
 # Expose port 80
 EXPOSE 80
